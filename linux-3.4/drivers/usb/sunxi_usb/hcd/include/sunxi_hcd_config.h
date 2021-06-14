@@ -27,7 +27,7 @@
 //#define        XUSB_DEBUG    /* debug switch */
 
 /* xusb hcd debug print */
-#if	0
+#if	1
 #define DMSG_DBG_HCD     			DMSG_PRINT
 #else
 #define DMSG_DBG_HCD(...)

@@ -1672,10 +1672,10 @@ static int buffer_setup(struct videobuf_queue *vq, unsigned int *count, unsigned
 
 static void free_buffer(struct videobuf_queue *vq, struct vfe_buffer *buf)
 {
-	vfe_dbg(1,"%s, state: %i\n", __func__, buf->vb.state);
+	//vfe_dbg(1,"%s, state: %i\n", __func__, buf->vb.state);
 	videobuf_waiton(vq, &buf->vb, 0, 0);
 	videobuf_dma_contig_free(vq, &buf->vb);
-	vfe_dbg(1,"free_buffer: freed\n");
+	//vfe_dbg(1,"free_buffer: freed\n");
 	buf->vb.state = VIDEOBUF_NEEDS_INIT;
 }
 
@@ -1738,7 +1738,7 @@ static void buffer_release(struct videobuf_queue *vq,
          struct videobuf_buffer *vb)
 {
 	struct vfe_buffer *buf  = container_of(vb, struct vfe_buffer, vb);
-	vfe_dbg(1,"buffer_release\n");
+	//vfe_dbg(1,"buffer_release\n");
 	free_buffer(vq, buf);
 }
 
@@ -1811,10 +1811,10 @@ static int vidioc_g_fmt_vid_cap(struct file *file, void *priv,
 	f->fmt.pix.width        = dev->width;
 	f->fmt.pix.height       = dev->height;
 	f->fmt.pix.field        = dev->vb_vidq.field;
-	f->fmt.pix.pixelformat  = dev->fmt->bus_pix_code;
+	f->fmt.pix.pixelformat  = dev->fmt->pixelformat;
 	//  f->fmt.pix.bytesperline = (f->fmt.pix.width * dev->fmt->depth) >> 3;
 	//  f->fmt.pix.sizeimage    = f->fmt.pix.height * f->fmt.pix.bytesperline;
-
+	vfe_dbg(0, "%s pixelformat=%x\n", __func__, f->fmt.pix.pixelformat);
 	return 0;
 }
 
@@ -2245,6 +2245,11 @@ static int vidioc_s_fmt_vid_cap(struct file *file, void *priv,
     }
   } else if (mbus_cfg.type == V4L2_MBUS_BT656) {
     dev->bus_info.bus_if = BT656;
+    if(IS_FLAG(mbus_cfg.flags,V4L2_MBUS_PCLK_SAMPLE_RISING)) {
+        dev->bus_info.bus_tmg.pclk_sample = RISING;
+      } else {
+        dev->bus_info.bus_tmg.pclk_sample = FALLING;
+      }
   }
 
 
@@ -2583,7 +2588,7 @@ static int vidioc_dqbuf(struct file *file, void *priv, struct v4l2_buffer *p)
 {
 	int ret = 0;
 	struct vfe_dev *dev = video_drvdata(file);
-	vfe_dbg(2,"vidioc dqbuf\n");
+	//vfe_dbg(2,"vidioc dqbuf\n");
 	ret = videobuf_dqbuf(&dev->vb_vidq, p, file->f_flags & O_NONBLOCK);
 	//if (dev->isp_3a_result_pt != NULL && dev->is_bayer_raw)
 	//{

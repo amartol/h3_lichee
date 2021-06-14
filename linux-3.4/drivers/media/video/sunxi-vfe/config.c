@@ -662,8 +662,8 @@ int fetch_config(struct vfe_dev *dev)
 #else
   int type;
 #if defined(CONFIG_ARCH_SUN8IW3P1) || defined(CONFIG_ARCH_SUN9IW1P1)
-	unsigned int i2c_addr_vip0[2] = {0x78,0xff};
-	unsigned char ccm_vip0_dev0[] = {"ov5640",};
+	unsigned int i2c_addr_vip0[2] = {0x88,0xff};
+	unsigned char ccm_vip0_dev0[] = {"tw8834",};
   unsigned char ccm_vip0_dev1[] = {"",};
 	unsigned int vip0_is_isp_used[2] = {1,1};
   unsigned int vip0_is_bayer_raw[2] = {0,0};

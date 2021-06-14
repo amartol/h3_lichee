@@ -24,7 +24,7 @@ struct sensor_item sensor_list_t[] =
 	{	"ov2640"		,	0x60,		SENSOR_YUV	,	 PIXEL_NUM_2M		, CORE_CLK_RATE_FOR_2M},
 	{	"ov5640"		,	0x78,		SENSOR_YUV	,	 PIXEL_NUM_5M		, CORE_CLK_RATE_FOR_5M},
 	{	"ov5647"		,	0x6c,		SENSOR_RAW	,	 PIXEL_NUM_5M		, CORE_CLK_RATE_FOR_5M},
-	{	"ov5647_mipi"	,	0x6c,		SENSOR_RAW	,	 PIXEL_NUM_5M		, CORE_CLK_RATE_FOR_5M},
+	{	"ov5647_mipi"	  	,	0x6c,		SENSOR_RAW	,	 PIXEL_NUM_5M		, CORE_CLK_RATE_FOR_5M},
 	{	"ov5650"		,	0x50,		SENSOR_RAW	,	 PIXEL_NUM_5M		, CORE_CLK_RATE_FOR_5M},
 	{	"ov5648"		,	0x6c,		SENSOR_RAW	,	 PIXEL_NUM_5M		, CORE_CLK_RATE_FOR_5M},
 	{	"ov8825"		, 	0x6c,		SENSOR_RAW	,	 PIXEL_NUM_8M		, CORE_CLK_RATE_FOR_8M},
@@ -59,6 +59,7 @@ struct sensor_item sensor_list_t[] =
 	{	"nt99252"		,	0x6c,		SENSOR_YUV	,	 PIXEL_NUM_2M		, CORE_CLK_RATE_FOR_2M},
 	{	"ov7736"		,	0x42,		SENSOR_YUV	,	 PIXEL_NUM_0_3M		, CORE_CLK_RATE_FOR_2M},
 	{	"gc2155"		,	0x78,		SENSOR_YUV	,	 PIXEL_NUM_2M		, CORE_CLK_RATE_FOR_2M},
+	{	"tw8834"		,	0x88,		SENSOR_YUV	,	 PIXEL_NUM_1M		, CORE_CLK_RATE_FOR_2M},
 
 };
 int get_sensor_info(char *sensor_name, struct sensor_item *sensor_info)

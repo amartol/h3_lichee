@@ -16,7 +16,7 @@
 #ifndef  __USB_MANAGER_H__
 #define  __USB_MANAGER_H__
 
-#if	0
+#if	1
 #define DMSG_DBG_MANAGER     		pr_debug
 #else
 #define DMSG_DBG_MANAGER(...)

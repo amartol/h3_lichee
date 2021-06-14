@@ -41,6 +41,7 @@ struct vfe_device_info {
 
 struct vfe_fmt {
   unsigned char               name[32];
+  __u32 		       pixelformat;
   enum v4l2_mbus_pixelcode    bus_pix_code;
   unsigned int                fourcc;          /* v4l2 format id */
   enum v4l2_field             field;

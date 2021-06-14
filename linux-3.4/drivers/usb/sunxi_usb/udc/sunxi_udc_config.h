@@ -36,11 +36,11 @@
 #endif
 
 #define  SW_UDC_HS_TO_FS          /* support HS to FS */
-//#define  SW_UDC_DEBUG
+#define  SW_UDC_DEBUG
 
 /* sw udc debug print */
 #if	0
-#define DMSG_DBG_UDC     			DMSG_MSG
+#define DMSG_DBG_UDC     			DMSG_INFO_UDC
 #else
 #define DMSG_DBG_UDC(...)
 #endif

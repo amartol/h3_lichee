@@ -189,7 +189,7 @@ uart_rts = port:PA15<1><2><default><default>
 uart_cts = port:PA16<3><2><default><default>
 
 [spi0]
-spi_used = 1
+spi_used = 0
 spi_cs_bitmap = 1
 spi_mosi = port:PC00<3><default><default><default>
 spi_miso = port:PC01<3><default><default><default>
@@ -320,7 +320,7 @@ output_full = 1
 hdmi_mode_check = 1
 
 [disp_init]
-disp_init_enable = 1
+disp_init_enable = 0
 disp_mode = 0
 screen0_output_type = 3
 screen0_output_mode = 5
@@ -372,11 +372,11 @@ vip_csi_d7               = port:PE11<2><default><default><default>
 vip_csi_sck              = port:PE12<2><default><default><default>
 vip_csi_sda              = port:PE13<2><default><default><default>
 
-vip_dev0_mname           = "ov5640"
+vip_dev0_mname           = "tw8834"
 vip_dev0_pos             = "rear"
 vip_dev0_lane            = 2
 vip_dev0_twi_id          = 2
-vip_dev0_twi_addr        = 0x78
+vip_dev0_twi_addr        = 0x88
 vip_dev0_isp_used        = 0
 vip_dev0_fmt             = 0
 vip_dev0_stby_mode       = 0
@@ -480,8 +480,8 @@ usb_detect_type = 1
 usb_id_gpio = port:PG12<0><1><default><default>
 usb_det_vbus_gpio = port:PG12<0><1><default><default>
 usb_drv_vbus_gpio = port:PL02<1><0><default><0>
-usb_host_init_state = 1
-usb_restrict_gpio =
+usb_host_init_state = 0
+usb_restrict_gpio = 0
 usb_restric_flag = 0
 usb_restric_voltage = 3550000
 usb_restric_capacity = 5
@@ -490,7 +490,7 @@ usb_regulator_vol = 0
 usb_not_suspend = 0
 
 [usbc1]
-usb_used = 1
+usb_used = 0
 usb_drv_vbus_gpio =
 usb_restrict_gpio =
 usb_host_init_state = 1
@@ -500,7 +500,7 @@ usb_regulator_vol = 0
 usb_not_suspend = 0
 
 [usbc2]
-usb_used = 1
+usb_used = 0
 usb_drv_vbus_gpio =
 usb_restrict_gpio =
 usb_host_init_state = 1
@@ -510,7 +510,7 @@ usb_regulator_vol = 0
 usb_not_suspend = 0
 
 [usbc3]
-usb_used = 1
+usb_used = 0
 usb_drv_vbus_gpio =
 usb_restrict_gpio =
 usb_host_init_state = 1
@@ -558,7 +558,7 @@ wl_host_wake = port:PG10<0><default><default><0>
 wl_host_wake_invert = 0
 
 [bt_para]
-bt_used = 1
+bt_used = 0
 bt_uart_id = 3
 bt_uart_baud = 115200
 bt_rst_n = port:PG13<1><default><default><0>
@@ -635,7 +635,7 @@ spdif_used = 1
 hdmi_used = 0
 
 [s_cir0]
-ir_used = 1
+ir_used = 0
 ir_rx = port:PL11<2><1><default><default>
 ir_power_key_code0  = 0x00
 ir_addr_code0       = 0xC43B

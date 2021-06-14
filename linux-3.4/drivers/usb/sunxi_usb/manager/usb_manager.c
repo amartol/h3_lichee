@@ -492,11 +492,11 @@ err:
 #endif
 static void print_gpio_set(struct gpio_config *gpio)
 {
-	DMSG_MANAGER_DEBUG("gpio_name            = %s\n", gpio->gpio.gpio);
-	DMSG_MANAGER_DEBUG("mul_sel              = %x\n", gpio->gpio.mul_sel);
-	DMSG_MANAGER_DEBUG("pull                 = %x\n", gpio->gpio.pull);
-	DMSG_MANAGER_DEBUG("drv_level            = %x\n", gpio->gpio.drv_level);
-	DMSG_MANAGER_DEBUG("data                 = %x\n", gpio->gpio.data);
+	DMSG_MANAGER_DEBUG("gpio_name            = %x\n", gpio->gpio);
+	DMSG_MANAGER_DEBUG("mul_sel              = %x\n", gpio->mul_sel);
+	DMSG_MANAGER_DEBUG("pull                 = %x\n", gpio->pull);
+	DMSG_MANAGER_DEBUG("drv_level            = %x\n", gpio->drv_level);
+	DMSG_MANAGER_DEBUG("data                 = %x\n", gpio->data);
 }
 
 static void print_usb_cfg(struct usb_cfg *cfg)

@@ -19,7 +19,7 @@
 
 #ifdef  CONFIG_USB_SUNXI_USB_DEBUG
 
-#define  DMSG_PRINT(fmt,stuff...)		pr_debug(fmt,##stuff)
+#define  DMSG_PRINT(fmt,stuff...)		printk(fmt,##stuff)
 #define  DMSG_INFO_UDC(fmt,...)		DMSG_PRINT("[udc]: "fmt,##__VA_ARGS__)
 #define  DMSG_INFO_HCD0(fmt,...)		DMSG_PRINT("[hcd0]: "fmt,##__VA_ARGS__)
 #define  DMSG_INFO_MANAGER(fmt,...)		DMSG_PRINT("[usb_manager]: "fmt,##__VA_ARGS__)
@@ -33,7 +33,7 @@
 
 #endif
 
-#define  DMSG_PRINT_EX(fmt,stuff...)		pr_err(fmt,##stuff)
+#define  DMSG_PRINT_EX(fmt,stuff...)		printk(fmt,##stuff)
 #define  DMSG_ERR(fmt,...)        		DMSG_PRINT_EX("WRN:L%d(%s):"fmt, __LINE__, __FILE__,##__VA_ARGS__)
 
 

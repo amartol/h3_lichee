@@ -3,7 +3,7 @@
 #include "vfe_os.h"
 
 unsigned int vfe_dbg_en = 0;			// set 1 if need debug
-unsigned int vfe_dbg_lv = 1;
+unsigned int vfe_dbg_lv = 7;
 EXPORT_SYMBOL_GPL(vfe_dbg_en);
 EXPORT_SYMBOL_GPL(vfe_dbg_lv);
 
