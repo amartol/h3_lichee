@@ -428,7 +428,7 @@ sdc_use_wp = 0
 sdc_wp =
 sdc_isio = 0
 sdc_regulator = "none"
-sdc_power_supply = "none"
+sdc_power_supply = 3300000
 
 [mmc1_para]
 sdc_used = 1
@@ -445,7 +445,7 @@ sdc_use_wp = 0
 sdc_wp =
 sdc_isio = 1
 sdc_regulator = "none"
-sdc_power_supply = "none"
+sdc_power_supply = 3300000
 sdc_2xmode = 1
 sdc_ddrmode = 1
 
@@ -469,7 +469,7 @@ sdc_use_wp = 0
 sdc_wp =
 sdc_isio = 0
 sdc_regulator = "none"
-sdc_power_supply = "none"
+sdc_power_supply = 3300000
 sdc_2xmode = 1
 sdc_ddrmode = 1
 
