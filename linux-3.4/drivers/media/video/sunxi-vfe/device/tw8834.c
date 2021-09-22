@@ -575,7 +575,18 @@ static struct sensor_format_struct {
 
 
 static struct sensor_win_size sensor_win_sizes[] = {
-
+    /* XGA */
+    {
+      .width	  = XGA_WIDTH,
+      .height 	  = XGA_HEIGHT,
+      .hoffset    = 0,
+      .voffset    = 0,
+      .fps_fixed  = 1,
+      .regs	      = NULL,
+      .regs_size  = 0,
+      .set_size	  = NULL,
+    },
+    
     /* DVC */
     {
       .width      = 960,
@@ -587,25 +598,8 @@ static struct sensor_win_size sensor_win_sizes[] = {
       .regs_size  = 0,
       .set_size	  = NULL,
     },
-    /* XGA */
-//    {
-//      .width			= XGA_WIDTH,
-//      .height 		= XGA_HEIGHT,
-//      .hoffset    = 0,
-//      .voffset    = 0,
-//      .hts        = 2800,//limited by sensor
-//      .vts        = 1000,
-//      .pclk       = 84*1000*1000,
-//      .fps_fixed  = 1,
-//      .bin_factor = 1,
-//      .intg_min   = ,
-//      .intg_max   = ,
-//      .gain_min   = ,
-//      .gain_max   = ,
-//      .regs			  = sensor_xga_regs,
-//      .regs_size	= ARRAY_SIZE(sensor_xga_regs),
-//      .set_size		= NULL,
-//    },
+    
+    
   /* SVGA */
    {
      .width		 = 800,
