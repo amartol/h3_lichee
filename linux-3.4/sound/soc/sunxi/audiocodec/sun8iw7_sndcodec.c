@@ -54,6 +54,7 @@ static int cap_vol 		  = 0;
 static int lineout_vol 	  = 0;
 static int codec_cap_mode = 0;
 static bool codec_lineout_en = false;
+static bool codec_mic_en = true;
 static  bool codec_addadrc_en = false;
 static  bool codec_lineinin_en  = false;
 static bool codec_addaloop_en = false;
@@ -1463,6 +1464,32 @@ static int codec_get_audio_capture_mode(struct snd_kcontrol *kcontrol,
 	return 0;
 }
 
+/*
+*	codec_mic_en == 1, unmute the mic.
+*	codec_mic_en == 0, mute the mic.
+*/
+static int codec_set_capture(struct snd_kcontrol *kcontrol,
+	struct snd_ctl_elem_value *ucontrol)
+{
+	codec_mic_en = ucontrol->value.integer.value[0];
+	if (codec_mic_en) {
+		codec_wr_prcm_control(LADCMIXSC, 0x1, LADCMIXMUTEMIC1BOOST, 0x1);
+		codec_wr_prcm_control(RADCMIXSC, 0x1, RADCMIXMUTEMIC1BOOST, 0x1);
+	} else {
+		codec_wr_prcm_control(LADCMIXSC, 0x1, LADCMIXMUTEMIC1BOOST, 0x0);
+		codec_wr_prcm_control(RADCMIXSC, 0x1, RADCMIXMUTEMIC1BOOST, 0x0);
+	}
+	return 0;
+}
+
+static int codec_get_capture(struct snd_kcontrol *kcontrol,
+	struct snd_ctl_elem_value *ucontrol)
+{
+	ucontrol->value.integer.value[0] = codec_mic_en;
+	return 0;
+}
+
+
 static const char *audio_capture_function[] = {"main mic", "mic1_2", "linein"};
 static const struct soc_enum audio_capture_enum[] = {
         SOC_ENUM_SINGLE_EXT(ARRAY_SIZE(audio_capture_function), audio_capture_function),
@@ -1477,12 +1504,13 @@ static const struct snd_kcontrol_new sunxi_codec_controls[] = {
 	CODEC_SINGLE("MIC2 boost AMP gain control", 				MIC2G_LINEOUT_CTR, MIC2BOOST, 0x7, 0),
 
 	CODEC_SINGLE("Lineout volume control", 						LINEOUT_VOLC, LINEOUTVOL, 0x1f, 0),
-
+    
 	CODEC_SINGLE("ADC input gain ctrl", 						ADC_AP_EN, ADCG, 0x7, 0),
 	SOC_SINGLE_BOOL_EXT("Audio linein in", 		0, codec_get_lineinin, 	codec_set_lineinin),
 	SOC_SINGLE_BOOL_EXT("Audio lineout", 	0, codec_get_lineout, 	codec_set_lineout),
 	SOC_SINGLE_BOOL_EXT("Audio adda drc", 	0, codec_get_addadrc, 	codec_set_addadrc),
 	SOC_SINGLE_BOOL_EXT("Audio adda loop", 	0, codec_get_addaloop, 	codec_set_addaloop),
+    SOC_SINGLE_BOOL_EXT("Capture", 0, codec_get_capture, codec_set_capture),
 	SOC_ENUM_EXT("audio capture mode", audio_capture_enum[0], codec_get_audio_capture_mode, codec_set_audio_capture_mode),
 };
 

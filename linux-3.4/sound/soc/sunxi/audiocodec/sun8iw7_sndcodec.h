@@ -12,8 +12,8 @@
  * the License, or (at your option) any later version.
  *
  */
-#ifndef _SUN8IW3_CODEC_H
-#define _SUN8IW3_CODEC_H
+#ifndef _SUN8IW7_CODEC_H
+#define _SUN8IW7_CODEC_H
 #include <mach/platform.h>
 /*Codec Register*/
 #define CODEC_BASSADDRESS         (0x01c22c00)

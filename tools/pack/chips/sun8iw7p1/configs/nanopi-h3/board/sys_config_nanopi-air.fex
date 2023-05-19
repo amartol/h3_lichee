@@ -567,7 +567,7 @@ bt_host_wake = port:PA07<0><default><default><0>
 bt_host_wake_invert = 0
 
 [pcm0]
-daudio_used = 1
+daudio_used = 0
 daudio_master = 4
 daudio_select = 1
 audio_format = 1
@@ -613,9 +613,9 @@ i2s_dout0 = port:PG12<2><1><default><default>
 i2s_din = port:PG13<2><1><default><default>
 
 [audio0]
-audio_used = 0
-lineout_vol = 31
-cap_vol = 5
+audio_used = 1
+lineout_vol = 0
+cap_vol = 2
 audio_hp_ldo = "none"
 adcagc_used = 0
 adcdrc_used = 0
