@@ -611,6 +611,18 @@ static struct sensor_win_size sensor_win_sizes[] = {
      .regs_size  = 0,
      .set_size   = NULL,
    },
+   /* VGA */
+   {
+      .width	  = VGA_WIDTH,
+      .height 	  = VGA_HEIGHT,
+      .hoffset    = 0,
+      .voffset    = 0,
+      .fps_fixed  = 1,
+      .regs	      = NULL,
+      .regs_size  = 0,
+      .set_size	  = NULL,      
+   },
+   
 };
 
 #define N_WIN_SIZES (ARRAY_SIZE(sensor_win_sizes))
